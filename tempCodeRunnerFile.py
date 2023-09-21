@@ -1,2 +1,1 @@
-screen = t.Screen()
-# screen.exitonclick()
+tim.penup()
