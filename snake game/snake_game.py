@@ -6,7 +6,7 @@ from scoreboard import ScoreBoard
 screen = Screen()
 screen.setup(width = 600, height= 600)
 screen.bgcolor("black")
-screen.title("Yojjal's Snake👀👀👀")
+screen.title("Yojjal's Snake👀👀👀") 
 screen.tracer(0)
 
 import time
@@ -40,15 +40,18 @@ while game_is_on :
     
     #detect collison
     if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() >290 or snake.head.ycor() < -290:
-        game_is_on = False
-        scoreboard.game_over()
+        
+        scoreboard.reset()
+        snake.reset()
         
     #Detect collison with tail
     for segment in snake.segments[1:]:
-        
-        if snake.head.distance(segment)<10:
-            game_is_on = False
-            scoreboard.game_over()
+        if segment == snake.head:
+            pass
+        elif snake.head.distance(segment)<10:
+            
+            scoreboard.reset()
+            snake.reset()
     ## if head collides with any segment in the tail:   
         #trigger game_over
     
